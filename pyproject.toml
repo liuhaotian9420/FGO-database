@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "servant-analysis"
+version = "0.1.0"
+description = "Parse and analyze basic servant stats"
+authors = ["haotianliu <57208366+liuhaotian9420@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+SQLAlchemy = "^2.0.31"
+fgo-api-types = "^2024.7.19.12.59.36"
+tqdm = "^4.66.4"
+pymysql = "^1.1.1"
+cryptography = "^43.0.0"
+tenacity = "^8.5.0"
+requests = "^2.32.3"
+alembic = "^1.13.2"
+pandas = "^2.2.2"
+streamlit = "^1.38.0"
+pymongo = "^4.9.1"
+
+[tool.poetry.group.dev.dependencies]
+SQLAlchemy = "^2.0.31"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

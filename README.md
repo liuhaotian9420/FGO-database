@@ -1,2 +1,8 @@
-# servant_analysis
-Analyze servant data
+# FGO Data
+
+将基础数据/预处理后的数据写入到数据库当中,方便做后续的应用和分析
+
+
+
+
+
