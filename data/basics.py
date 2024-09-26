@@ -140,7 +140,7 @@ MAX_LEVEL = {
 }
 
 
-# 职介倾向
+# 职介白值倾向
 CLASS_TENDANCY = {
     "HP": {
         "Saber": 1.01,

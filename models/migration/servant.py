@@ -1,44 +1,45 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from bson import ObjectId
-from statics import Individuality,SkillValue,Buff,Function,Skill
+from .statics import Individuality,SkillValue,Buff,Function,Skill
 
 
     
 class Card(BaseModel):
     
-    id: Optional[str] = Field(None,alias='_id')
+    
     card_type:str
-    np_rate:float=Field(0,alias='npRate')
+    np_rate:float
     hits_distribution:Optional[List[int]]
 
-class NoblePhantom(BaseModel):
+class NoblePhantasm(BaseModel):
     
-    id: Optional[int] = Field(None,alias='_id')
+    id: Optional[int]
+    name:Optional[str]
     card:Card
     effects:Optional[List[str]]
-    strength_status:int = Field(0,alias='strengthStatus')
+    strength_status:int
     individualities:Optional[List[Individuality]]
     functions:Optional[List[Function]]
 
 class Servant(BaseModel):
     
-    id:Optional[str] = Field(None,alias='_id')
-    collection_no:str=Field(None,alias='collectionNo')
-    name:str=Field(None,alias='Name')
+    id:Optional[int]
+    collection_no:int
+    name:str
     name_cn:str
-    class_name:str=Field(None,alias='className')
-    rarity:int=Field(None,alias='rarity')
-    np_rate:float=Field(None,alias='npRate')
-    max_atk:int=Field(None,alias='atkMax')
-    max_hp:int=Field(None,alias='hpMax')
-    star_absorb:int=Field(None,alias='starAbsorb')
-    star_gen:int=Field(None,alias='starGen')
+    class_name:str
+    rarity:int
+    max_atk:int
+    max_hp:int
+    star_absorb:int
+    star_gen:int
     attribute:str
-    traits:Optional[List[Card]]
+    cards:Optional[List[Card]]
+    traits:Optional[List[Individuality]]
     skills:Optional[List[Skill]]
     passive:Optional[List[Skill]]
-    td:Optional[List[NoblePhantom]]
+    td:Optional[List[NoblePhantasm]]
     
     
     
