@@ -16,7 +16,7 @@ class Servant(Base):
     tendancy = Column(Float,comment = '从者的攻防倾向')
     star_absorb_rate = Column(Integer, comment='暴击星集中度')
     star_gen_rate = Column(Integer, comment='星集中度')
-    class_mod = Column(Integer, comment='职介系数')
+    class_mod = Column(Float(3), comment='职介系数')
     attribute = Column(String(255), comment='从者阵营')
     traits = Column(String(1000), comment='从者的特性')
 
