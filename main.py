@@ -109,7 +109,7 @@ def extract_skills(skills,default_level = 0):
                 nice_skill_data = requests.get(nice_skills.format(skill_id=aux)).json()
                 if nice_skill_data.get('detail','')=='Skill not found':
                     continue
-                nice_skill_data.update({'svtId':sk['svtId'],"num":-1,'type':'chained'})
+                nice_skill_data.update({'svtId':sk['svtId'],"num":-1,'type':'chained','name':sk['name']})
                 try:
                     new_skills = extract_skills([nice_skill_data],default_level=level)
                 except Exception as e:
@@ -202,7 +202,7 @@ def process_ce_json(ce_data):
             nice_skill_data = requests.get(nice_skills.format(skill_id=aux)).json()
             if nice_skill_data.get('detail','')=='Skill not found':
                 continue
-            nice_skill_data.update({'svtId':sk['svtId'],"num":-1,'type':'chained'})
+            nice_skill_data.update({'svtId':sk['svtId'],"num":-1,'type':'chained',})
             try:
                 skills.extend(extract_skills([nice_skill_data],default_level=level))
             except Exception as e:

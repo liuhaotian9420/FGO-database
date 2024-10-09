@@ -1,8 +1,8 @@
-"""add CraftEssenceSkill buff id default
+"""add skill name as pkey
 
-Revision ID: b033d5c37482
-Revises: abfa4d9d2b4e
-Create Date: 2024-09-11 10:36:08.274201
+Revision ID: 574169d7d7cb
+Revises: 00b9fe07270b
+Create Date: 2024-10-09 15:59:48.743295
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'b033d5c37482'
-down_revision: Union[str, None] = 'abfa4d9d2b4e'
+revision: str = '574169d7d7cb'
+down_revision: Union[str, None] = '00b9fe07270b'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 

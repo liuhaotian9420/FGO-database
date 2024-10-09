@@ -25,7 +25,7 @@ class ServantCard(Base):
     __tablename__ ='servant_cards'
     
     card_id = Column(String(255), primary_key=True,)
-    servant_id = Column(Integer, ForeignKey('servants.servant_id'))
+    servant_id = Column(Integer,)
     card_type = Column(String(255), index=True)
     card_np = Column(Integer, comment='指令卡的 NP值')
     card_hits = Column(Integer, comment='指令卡的 hit 数')

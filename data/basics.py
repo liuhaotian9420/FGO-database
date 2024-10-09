@@ -98,10 +98,10 @@ CLASS_ATK_RATE = {
 }
 
 # 职介优势
-CLASS_ADVANTAGES = json.load(open("class_adv.json", "r"))
+CLASS_ADVANTAGES = json.load(open("data/class_adv.json", "r"))
 
 # 指令卡基础
-face_card = json.load(open("face_card.json", "r"))
+face_card = json.load(open("data/face_card.json", "r"))
 # 伤害
 FACE_CARD_DAMAGE_RATE = { card:[static['adjustAtk'] for idx,static in data.items()] 
                          for card,data in face_card.items() 

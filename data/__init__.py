@@ -1,1 +1,1 @@
-from basics import *
+from .basics import *

@@ -3,6 +3,7 @@
 '''
 import requests
 import json
+from utils import check_cache, add_cache
 
 basic_servants = 'https://api.atlasacademy.io/export/JP/basic_servant_lang_en.json'
 basic_ces = 'https://api.atlasacademy.io/export/JP/basic_equip_lang_en.json'
@@ -13,7 +14,16 @@ def download_data(url):
     with open(f'data/{file_name}', 'w', encoding='utf-8') as f:
         response = requests.get(url)
         json.dump(response.json())
+        
 
-if __name__ == '__main__':
-    download_data(basic_servants)
-    download_data(basic_ces)
+def lookup_function(function_id):
+    url = 'https://api.atlasacademy.io/basic/JP/function/{function_id}'
+    cache = check_cache(url.format(function_id=function_id))
+    if not cache:
+        response = requests.get(url.format(function_id=function_id))
+        if response.status_code == 200:
+            # add_cache(response.json(), url.format(function_id=function_id))
+            return response.json()
+        else:
+            raise Exception('Failed to fetch function data:',response.status_code,'-',response.text)
+    return cache
