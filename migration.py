@@ -35,8 +35,8 @@ def migrate_servant_data(session,documents):
        session.merge(servant)
        for c in cards:
             session.merge(c)
-       for skillset in skillsets:
-            session.merge(skillset)
+    #    for skillset in skillsets:
+    #         session.merge(skillset)
 
 @mysql_operation()
 def migrate_craft_essence_data(session, documents):       
@@ -51,5 +51,5 @@ def migrate_craft_essence_data(session, documents):
 if __name__ == "__main__":
     mongo_data = fetch_mongo_data('servants')
     migrate_servant_data(mongo_data)
-    craft_essences = fetch_mongo_data('craft_essence')        
-    migrate_craft_essence_data(craft_essences)
+    # craft_essences = fetch_mongo_data('craft_essence')        
+    # migrate_craft_essence_data(craft_essences)

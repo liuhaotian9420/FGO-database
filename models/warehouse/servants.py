@@ -26,7 +26,8 @@ class ServantCard(Base):
     
     card_id = Column(String(255), primary_key=True,)
     servant_id = Column(Integer,)
-    card_type = Column(String(255), index=True)
+    card_name = Column(String(255), index=True,comment='指令卡的名称')
+    card_type = Column(String(255), index=True,comment='指令卡的类型')
     card_np = Column(Integer, comment='指令卡的 NP值')
     card_hits = Column(Integer, comment='指令卡的 hit 数')
     card_dist =  Column(String(255), comment='指令卡的 hit')

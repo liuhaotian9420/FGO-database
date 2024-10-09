@@ -49,10 +49,14 @@ def etl_card_data_to_mysql(document,model=ServantCard):
     
     servant_id = document.get('id')
     cards = document.get('cards')
+    np_card = [document.get('td')[-1]['card']]
+    np_type = document.get('td')[-1]['effects'][-1]
     result = []
-    for idx,c in enumerate(cards):
+    for idx,c in enumerate(cards+np_card):
+        
         card_id = str(servant_id)+'_'+str(idx+1)
-        card_type = c.get('card_type')
+        card_name = c.get('card_type')
+        card_type = 'command_card' if idx < len(cards) else np_type
         card_np = c.get('np_rate')
         card_hits = len(c.get('hits_distribution'))
         hits  = [str(h) for h in c.get('hits_distribution')]
@@ -62,6 +66,7 @@ def etl_card_data_to_mysql(document,model=ServantCard):
         result.append(ServantCard(
             card_id=card_id,
             servant_id=servant_id,
+            card_name=card_name,
             card_type=card_type,
             card_np=card_np,
             card_hits=card_hits,
